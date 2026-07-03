@@ -1,0 +1,5 @@
+#!/bin/bash
+# Lanzador de Flujo como app de macOS. Encuentra la carpeta del proyecto
+# relativa al propio .app, así funciona en cualquier Mac y en cualquier ruta.
+PROYECTO="$(cd "$(dirname "$0")/../../.." && pwd)"
+cd "$PROYECTO" && exec ./flujo.sh

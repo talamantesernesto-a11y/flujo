@@ -1,0 +1,11 @@
+# Entorno virtual y cachés de Python (se regeneran con `uv sync`)
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Notas internas de desarrollo (no van al repo público)
+tasks/

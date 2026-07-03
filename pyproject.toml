@@ -1,0 +1,32 @@
+[project]
+name = "flujo"
+version = "0.1.0"
+description = "Dictado por voz 100% local para macOS, en español (Whisper + MLX en Apple Silicon)"
+requires-python = ">=3.11"
+dependencies = [
+    "mlx-whisper>=0.4.2",
+    "numpy>=1.26",
+    "sounddevice>=0.5",
+    "pynput>=1.7.7",
+    "rumps>=0.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/flujo"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integracion: pruebas lentas que descargan modelos y generan audio real",
+]
+addopts = "-m 'not integracion'"
